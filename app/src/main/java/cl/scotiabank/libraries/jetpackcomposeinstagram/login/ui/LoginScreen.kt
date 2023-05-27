@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -54,12 +55,20 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
             .fillMaxSize()
             .padding(all = 8.dp)
     ) {
-        Header(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-        )
-        Body(modifier = Modifier.align(Alignment.Center), loginViewModel)
-        Footer(modifier = Modifier.align(Alignment.BottomCenter))
+        val isLoading: Boolean by loginViewModel.isLoading.observeAsState(initial = false)
+        if (isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .align(Alignment.Center)
+            ) {
+                CircularProgressIndicator()
+            }
+        } else {
+            Header(modifier = Modifier.align(Alignment.TopEnd))
+            Body(modifier = Modifier.align(Alignment.Center), loginViewModel)
+            Footer(modifier = Modifier.align(Alignment.BottomCenter))
+        }
     }
 }
 
@@ -109,17 +118,17 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
     Column(modifier = modifier) {
         ImageLogo(modifier = Modifier.align(Alignment.CenterHorizontally))
         Spacer(modifier = Modifier.size(16.dp))
-        Email(email = email){
+        Email(email = email) {
             loginViewModel.onLoginChanged(email = it, password = password)
         }
         Spacer(modifier = Modifier.size(4.dp))
         Password(password = password) {
-            loginViewModel.onLoginChanged(email = email,password = it)
+            loginViewModel.onLoginChanged(email = email, password = it)
         }
         Spacer(modifier = Modifier.size(8.dp))
         ForgotPassword(modifier = Modifier.align(Alignment.End))
         Spacer(modifier = Modifier.size(16.dp))
-        LoginButton(loginEnable = isLoginEnable)
+        LoginButton(loginEnable = isLoginEnable, loginViewModel = loginViewModel)
         Spacer(modifier = Modifier.size(16.dp))
         LoginDivider()
         Spacer(modifier = Modifier.size(32.dp))
@@ -179,9 +188,9 @@ fun LoginDivider() {
 }
 
 @Composable
-fun LoginButton(loginEnable: Boolean) {
+fun LoginButton(loginEnable: Boolean, loginViewModel: LoginViewModel) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { loginViewModel.onLoginSelected() },
         enabled = loginEnable,
         modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(
@@ -194,6 +203,7 @@ fun LoginButton(loginEnable: Boolean) {
         Text(text = "Log In")
     }
 }
+
 @Composable
 fun ForgotPassword(modifier: Modifier = Modifier) {
     Text(
@@ -238,6 +248,7 @@ fun Password(password: String, onTextChanged: (String) -> Unit) {
         }
     )
 }
+
 @Composable
 fun Email(email: String, onTextChanged: (String) -> Unit) {
     TextField(
