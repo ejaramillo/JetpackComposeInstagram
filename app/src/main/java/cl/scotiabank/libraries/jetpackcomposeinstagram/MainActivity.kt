@@ -10,6 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginViewModel
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginScreen
 import cl.scotiabank.libraries.jetpackcomposeinstagram.ui.theme.JetpackComposeInstagramTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreen()
+                    LoginScreen(loginViewModel = LoginViewModel())
                 }
             }
         }
