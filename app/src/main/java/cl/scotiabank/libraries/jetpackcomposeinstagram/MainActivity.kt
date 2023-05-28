@@ -3,28 +3,13 @@ package cl.scotiabank.libraries.jetpackcomposeinstagram
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.ColorAnimationSimple
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.CrossfadeExampleAnimation
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginViewModel
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginScreen
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.SizeAnimation
-import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.VisibilityAnimation
 import cl.scotiabank.libraries.jetpackcomposeinstagram.ui.theme.JetpackComposeInstagramTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    private val loginViewModel: LoginViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -34,25 +19,9 @@ class MainActivity : ComponentActivity() {
                     //modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    CrossfadeExampleAnimation()
+                    Text(text = "Hola")
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JetpackComposeInstagramTheme {
-        Greeting("Android")
     }
 }
