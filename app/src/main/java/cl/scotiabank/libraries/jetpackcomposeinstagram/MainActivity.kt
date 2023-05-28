@@ -11,8 +11,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.ColorAnimationSimple
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.CrossfadeExampleAnimation
 import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginViewModel
 import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.LoginScreen
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.SizeAnimation
+import cl.scotiabank.libraries.jetpackcomposeinstagram.login.ui.VisibilityAnimation
 import cl.scotiabank.libraries.jetpackcomposeinstagram.ui.theme.JetpackComposeInstagramTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,10 +31,10 @@ class MainActivity : ComponentActivity() {
             JetpackComposeInstagramTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    //modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreen(loginViewModel = loginViewModel)
+                    CrossfadeExampleAnimation()
                 }
             }
         }
