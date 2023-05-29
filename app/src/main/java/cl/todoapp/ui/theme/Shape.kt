@@ -1,4 +1,4 @@
-package cl.scotiabank.libraries.jetpackcomposeinstagram.ui.theme
+package cl.todoapp.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

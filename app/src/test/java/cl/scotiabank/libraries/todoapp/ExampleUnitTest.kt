@@ -1,4 +1,4 @@
-package cl.scotiabank.libraries.jetpackcomposeinstagram
+package cl.scotiabank.libraries.todoapp
 
 import org.junit.Test
 

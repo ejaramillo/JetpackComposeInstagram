@@ -1,4 +1,4 @@
-package cl.scotiabank.libraries.jetpackcomposeinstagram
+package cl.scotiabank.libraries.todoapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

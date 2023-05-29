@@ -1,4 +1,4 @@
-package cl.scotiabank.libraries.jetpackcomposeinstagram.ui.theme
+package cl.todoapp.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
