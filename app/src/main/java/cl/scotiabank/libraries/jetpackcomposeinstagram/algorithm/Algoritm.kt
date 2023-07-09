@@ -1,4 +1,4 @@
-package cl.scotiabank.libraries.jetpackcomposeinstagram
+package cl.scotiabank.libraries.jetpackcomposeinstagram.algorithm
 
 import java.util.Scanner
 
